@@ -4,7 +4,6 @@ import axios from 'axios'
 function DataList () {
   const [countries, setCountries] = useState([])
   const [search, setSearch] = useState('')
-  // const [select, setSelect] = useState('')
   const [filteredCount, setFilteredCount] = useState([])
 
   useEffect(() => {
@@ -18,14 +17,6 @@ function DataList () {
     setFilteredCount(
       countries.filter((country) => country.name.toLowerCase().includes(search.toLowerCase()))
     )
-    // setFilteredCount(
-    //   countries.filter((country) => country.name === select)
-    // )
-    // const selected = countries.filter((country) => country.name === select)
-    // if (selected) {
-    //   // setFilteredCount(selected)
-    // }
-
 
   }, [search, countries,]);
 
@@ -72,36 +63,6 @@ function DataList () {
             </div>
           ))}
         </div>
-
-
-
-        {/* 
-        <table className="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col-1">#</th>
-              <th scope="col-2">Country</th>
-              <th scope="col">Capital</th>
-              <th scope="col">Location</th>
-              <th scope="col">Flag</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          {filteredCount.map((item, index) => (
-            <tbody key={index}>
-              <tr>
-                <th>{index + 1}</th>
-                <td>{item.name}</td>
-                <td>{item.capital}</td>
-                <td>{item.region}</td>
-                <td><img style={{ width: '30%' }} /></td>
-                <td>
-                  {search.length > 0 ? <button onClick={clearAll} className='btn btn-outline-warning '>CLEAR</button> : ''}
-                </td>
-              </tr>
-            </tbody>
-          ))}
-        </table> */}
 
       </form>
     </div>
